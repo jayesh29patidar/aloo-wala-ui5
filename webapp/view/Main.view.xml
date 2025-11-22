@@ -1,4 +1,4 @@
-<mvc:View
+<!-- <mvc:View
 	controllerName="aloo.wala.controller.Main"
 	displayBlock="true"
 	xmlns="sap.m"
@@ -27,4 +27,112 @@
 		</content>
 	</Page>
 
+</mvc:View> -->
+<mvc:View
+    controllerName="aloo.wala.controller.Main"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+>
+    <App>
+        <Page title="Aloo Wala - Menu">
+            <headerContent>
+                <Button
+                    icon="sap-icon://add"
+                    text="Add Dish"
+                    press=".onOpenAddDishDialog"
+                />
+
+                <SearchField
+                    width="200px"
+                    placeholder="Search dish..."
+                    liveChange=".onSearch"
+                />
+
+                <ComboBox
+                    width="150px"
+                    placeholder="Category"
+                    selectionChange=".onCategoryFilter"
+                >
+                    <items>
+                        <core:Item
+                            key=""
+                            text="All Categories"
+                        />
+                        <core:Item
+                            key="Fried"
+                            text="Fried"
+                        />
+                        <core:Item
+                            key="Air-Fried"
+                            text="Air-Fried"
+                        />
+                        <core:Item
+                            key="Fast Food"
+                            text="Fast Food"
+                        />
+                        <core:Item
+                            key="Snacks"
+                            text="Snacks"
+                        />
+                    </items>
+                </ComboBox>
+
+                <ToggleButton
+                    text="Healthy Only"
+                    press=".onHealthyOnly"
+                />
+            </headerContent>
+
+            <content>
+                <VBox class="sapUiSmallMargin">
+                    <Table
+                        id="idDishesTable"
+                        inset="false"
+                        items="{/dishes}"
+                    >
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title
+                                    text="Aloo Dishes"
+                                    level="H2"
+                                />
+                                <ToolbarSpacer />
+                                <Label text="Total Dishes: {/dishes.length}" />
+                            </Toolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column>
+                                <Text text="Dish Name" />
+                            </Column>
+                            <Column>
+                                <Text text="Category" />
+                            </Column>
+                            <Column>
+                                <Text text="Price (₹)" />
+                            </Column>
+                            <Column>
+                                <Text text="Healthy Option" />
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{name}" />
+                                    <Text text="{category}" />
+                                    <Text text="{price}" />
+                                    <Text
+                                        text="{= ${isHealthy} ? 'Yes' : 'No'}"
+                                    />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </VBox>
+            </content>
+        </Page>
+    </App>
 </mvc:View>
