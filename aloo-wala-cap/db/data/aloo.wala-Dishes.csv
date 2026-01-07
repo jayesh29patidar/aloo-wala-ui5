@@ -1,0 +1,5 @@
+ID;name;category;price;isHealthy
+1;Aloo Samosa;Fried;25;false
+2;Air-Fried Aloo Tikki;Air-Fried;40;true
+3;Cheese Aloo Burger;Fast Food;80;false
+4;Masala Aloo Chaat;Snacks;60;true

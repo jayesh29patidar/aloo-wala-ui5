@@ -1,0 +1,114 @@
+{
+  "namespace": "aloo.wala",
+  "definitions": {
+    "aloo.wala.Dishes": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "name": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "category": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "price": {
+          "type": "cds.Decimal",
+          "precision": 9,
+          "scale": 2
+        },
+        "isHealthy": {
+          "type": "cds.Boolean"
+        }
+      }
+    },
+    "AlooService": {
+      "@source": "srv/aloo-service.cds",
+      "kind": "service"
+    },
+    "AlooService.Dishes": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "aloo.wala.Dishes"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "name": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "category": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "price": {
+          "type": "cds.Decimal",
+          "precision": 9,
+          "scale": 2
+        },
+        "isHealthy": {
+          "type": "cds.Boolean"
+        }
+      }
+    },
+    "cds.outbox.Messages": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "timestamp": {
+          "type": "cds.Timestamp"
+        },
+        "target": {
+          "type": "cds.String"
+        },
+        "msg": {
+          "type": "cds.LargeString"
+        },
+        "attempts": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "partition": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "lastError": {
+          "type": "cds.LargeString"
+        },
+        "lastAttemptTimestamp": {
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 23
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v6.4.6",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}

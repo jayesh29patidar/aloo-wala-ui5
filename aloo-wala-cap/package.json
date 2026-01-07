@@ -1,0 +1,32 @@
+{
+  "name": "aloo-wala-cap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "cds watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@sap/cds": "^9.4.4",
+    "@sap/cds-dk": "^9.4.3",
+    "ui5-middleware-simpleproxy": "^3.5.2"
+  },
+  "dependencies": {
+    "@cap-js/sqlite": "^2.1.0"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "model": [
+          "db",
+          "srv"
+        ]
+      }
+    }
+  }
+}

@@ -53,7 +53,7 @@
                 <ComboBox
                     width="150px"
                     placeholder="Category"
-                    selectionChange=".onCategoryFilter"
+                    selectionChange=".onCategoryFilter" 
                 >
                     <items>
                         <core:Item
@@ -90,16 +90,17 @@
                     <Table
                         id="idDishesTable"
                         inset="false"
-                        items="{/dishes}"
+                        items="{/Dishes}"
                     >
                         <headerToolbar>
                             <Toolbar>
+                                <Image src="images/logo.png" width="48px" height="48px"/>
                                 <Title
                                     text="Aloo Dishes"
                                     level="H2"
                                 />
                                 <ToolbarSpacer />
-                                <Label text="Total Dishes: {/dishes.length}" />
+                                <!-- <Label text="Total Dishes: {/dishes.length}" /> -->
                             </Toolbar>
                         </headerToolbar>
 
